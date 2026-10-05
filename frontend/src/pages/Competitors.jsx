@@ -1,0 +1,3 @@
+import { Plus } from 'lucide-react'
+import CompetitorTable from '../components/CompetitorTable'
+export default function Competitors({ competitors, onAdd, onToggle, onAnalyze, onDelete }) { return <div className="page"><div className="page-title"><div><p className="eyebrow">Sources</p><h1>Competitors</h1><p>Manage monitored websites and their automatically discovered sources.</p></div><button className="button primary" onClick={onAdd}><Plus size={17}/> Add competitor</button></div><section className="panel"><CompetitorTable competitors={competitors} onToggle={onToggle} onAnalyze={onAnalyze} onDelete={onDelete}/></section></div> }

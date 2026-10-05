@@ -1,0 +1,2 @@
+import ArticleTable from '../components/ArticleTable'
+export default function Articles({ articles, onOpenArticle }) { return <div className="page"><div className="page-title"><div><p className="eyebrow">Content intelligence</p><h1>Detected articles</h1><p>Every article includes its source, detection method and measured delay.</p></div></div><section className="panel"><ArticleTable articles={articles} onOpen={onOpenArticle}/></section></div> }

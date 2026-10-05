@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: competitor-blog-spy-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: CHECK_INTERVAL_SECONDS
+        value: "300"
+      - key: MAX_CONCURRENT_CHECKS
+        value: "20"
+      - key: REQUEST_TIMEOUT_SECONDS
+        value: "20"
+      - key: ENABLE_MONITORING
+        value: "true"
+      - key: FRONTEND_URL
+        value: https://competitor-blog-spy-frontend.onrender.com
+      - key: FRONTEND_ORIGINS
+        value: https://competitor-blog-spy-frontend.onrender.com
+
+  - type: web
+    name: competitor-blog-spy-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://competitor-blog-spy-api.onrender.com
