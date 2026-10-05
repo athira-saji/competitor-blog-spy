@@ -17,12 +17,12 @@ services:
       - key: ENABLE_MONITORING
         value: "true"
       - key: FRONTEND_URL
-        value: https://competitor-blog-spy-frontend.onrender.com
+        value: https://competitor-blog-spy.onrender.com
       - key: FRONTEND_ORIGINS
-        value: https://competitor-blog-spy-frontend.onrender.com
+        value: https://competitor-blog-spy.onrender.com
 
   - type: web
-    name: competitor-blog-spy-frontend
+    name: competitor-blog-spy
     runtime: static
     rootDir: frontend
     buildCommand: npm ci && npm run build
